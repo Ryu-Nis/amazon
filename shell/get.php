@@ -108,6 +108,9 @@ for($count = $start_page; $count<=2; $count++){
         case 503:
             error("データ取得時のエラー：メンテナンス・リクエスト過多 (全ユーザ制限値超過)");
         break;
+
+        default:
+            error("想定外のHTTPコード");
     }
     currentpage($count);
 }
