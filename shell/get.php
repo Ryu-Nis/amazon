@@ -7,7 +7,6 @@ require_once('../shell/log.php');
 date_default_timezone_set('Asia/Tokyo');
 $date = date('Y-m-d H:i:s');
 
-
 // ・通信が発生する部分（今回でいえば、楽天のデータを取ってくる所） 
 // ・DB周りの部分（今回だとselect、insert、update部分）
 
@@ -15,67 +14,107 @@ $date = date('Y-m-d H:i:s');
 // <!-- 楽天に取りに行く -->
 // <!-- こけた時のためにどこまで読み込んだか把握して、どこから読むか制御 -->
 
-for($count = 1; $count<=$page; $count++){
-    $rakuten_relust = getRakutenResult($keyword, $max_price, $min_price, $count); // キーワード、最大価格、最低価格、を指定
-    foreach ($rakuten_relust as $item) :
-        // <!-- 返ってきた値をインサート -->
-        $name = $item['name'];
-        $price = $item['price'];
-        $code = $item['code'];
-    
-        // <!-- 既に入っているかチェック -->
-        $check_result = mysqli_query($link,"SELECT 1 FROM products where code = '$code'");
-        //DBエラー処理
-        $errNO = mysqli_errno($link);
-        $errMSG = mysqli_error($link);
-        if($errMSG !== ''){
-            error($errNO.":".$errMSG."重複確認時のエラー");
-        }
-        $rows = mysqli_num_rows($check_result);
-    
-        // <!-- 無かったら新規、既にあったら日付と値段を更新 -->
-        if($rows == 0){
-            $insert_sql = "INSERT INTO products (code,date,name,price,proportion) 
-            VALUES ('$code','$date', '$name', '$price',0)";
-            $res = mysqli_query( $link, $insert_sql);
-            //DBエラー処理
-            $errNO = mysqli_errno($link);
-            $errMSG = mysqli_error($link);
-            if($errMSG !== ''){
-                error($errNO.":".$errMSG."インサート時のエラー");
-            }
-        }else{
-            // 履歴テーブルに引っ越し（後で履歴表示するかもしれないからとりあえず全部インサート）
-            $mig_sql = "INSERT INTO historical_products(code,date,name,price)
-            SELECT products.code,products.date,products.name,products.price from products
-            WHERE products.code = '$code'";
-            $res = mysqli_query( $link, $mig_sql);
-            //DBエラー処理
-            $errNO = mysqli_errno($link);
-            $errMSG = mysqli_error($link);
-            if($errMSG !== ''){
-                error($errNO.":".$errMSG."履歴テーブルへインサート時のエラー");
-            }
-            // 日付と値段と前回比を更新
-            $update_sql = "UPDATE products SET date='$date', price='$price' WHERE code='$code'";
-            $pro_sql = "UPDATE products,historical_products
-            SET products.proportion = ((products.price / historical_products.price)-1)
-            WHERE historical_products.code = products.code";
+//開始ページをファイルから読み込み(int型へ変換）
+$start_page = file_get_contents('../shell/logs/currentpage.txt');
+$start_page = intval($start_page);
 
-            $res = mysqli_query( $link, $update_sql);
-            $res = mysqli_query( $link, $pro_sql);
-            //DBエラー処理
-            $errNO = mysqli_errno($link);
-            $errMSG = mysqli_error($link);
-            if($errMSG !== ''){
-                error($errNO.":".$errMSG."Update時のエラー");
-            }
-        }
-    endforeach;
+for($count = $start_page; $count<=2; $count++){
+    $rakuten_relust = getRakutenResult("Bianchi",100000,100, $count); // キーワード、最大価格、最低価格、を指定
+    //HTTPレスポンスコードでエラー処理
+    $res_code = http_response_code();
+    switch($res_code){
+        case 200:
+            foreach ($rakuten_relust as $item) :
+                // <!-- 返ってきた値をインサート -->
+                $name = $item['name'];
+                $price = $item['price'];
+                $code = $item['code'];
+            
+                // <!-- 既に入っているかチェック -->
+                $check_result = mysqli_query($link,"SELECT 1 FROM products where code = '$code'");
+                //DBエラー処理
+                $errNO = mysqli_errno($link);
+                $errMSG = mysqli_error($link);
+                if($errMSG !== '' && $errMSG !== $errMSG_NEW){
+                    error($errNO.":".$errMSG."-->重複チェック時のエラー");
+                    $errNO_NEW = mysqli_errno($link);
+                    $errMSG_NEW = mysqli_error($link);
+                }
+                $rows = mysqli_num_rows($check_result);
+            
+                // <!-- 無かったら新規、既にあったら日付と値段を更新 -->
+                if($rows == 0){
+                    $insert_sql = "INSERT INTO products(code,date,name,price,proportion) 
+                    VALUES ('$code','$date', '$name', '$price',0)";
+                    $res = mysqli_query( $link, $insert_sql);
+                    //DBエラー処理
+                    $errNO = mysqli_errno($link);
+                    $errMSG = mysqli_error($link);
+                    if($errMSG !== '' && $errMSG !== $errMSG_NEW){
+                        error($errNO.":".$errMSG."-->インサート時のエラー");
+                        $errNO_NEW = mysqli_errno($link);
+                        $errMSG_NEW = mysqli_error($link);
+                    }
+                }else{
+                    // 履歴テーブルに引っ越し（後で履歴表示するかもしれないからとりあえず全部インサート）
+                    $mig_sql = "INSERT INTO historical_products(code,date,name,price)
+                    SELECT products.code,products.date,products.name,products.price from products
+                    WHERE products.code = '$code'";
+                    $res = mysqli_query( $link, $mig_sql);
+                    //DBエラー処理
+                    $errNO = mysqli_errno($link);
+                    $errMSG = mysqli_error($link);
+                    if($errMSG !== '' && $errMSG !== $errMSG_NEW){
+                        error($errNO.":".$errMSG."-->履歴テーブルインサートのエラー");
+                        $errNO_NEW = mysqli_errno($link);
+                        $errMSG_NEW = mysqli_error($link);
+                    }
+                    // 日付と値段と前回比を更新
+                    $update_sql = "UPDATE products SET date='$date', price='$price' WHERE code='$code'";
+                    $pro_sql = "UPDATE products,historical_products
+                    SET products.proportion = ((products.price / historical_products.price)-1)
+                    WHERE historical_products.code = products.code";
+        
+                    $res = mysqli_query( $link, $update_sql);
+                    $res = mysqli_query( $link, $pro_sql);
+                    //DBエラー処理
+                    $errNO = mysqli_errno($link);
+                    $errMSG = mysqli_error($link);
+                    if($errMSG !== '' && $errMSG !== $errMSG_NEW){
+                        error($errNO.":".$errMSG."-->更新時のエラー");
+                        $errNO_NEW = mysqli_errno($link);
+                        $errMSG_NEW = mysqli_error($link);
+                    }
+                }
+            endforeach;
+        break;
+
+        case 400:
+            error("データ取得時のエラー：パラメーターエラー (必須パラメータ不足)");
+        break;
+
+        case 404:
+            error("データ取得時のエラー：対象のデータが存在しなかった");
+        break;
+
+        case 429:
+            error("データ取得時のエラー：リクエスト過多 (各ユーザ制限値超過)");
+        break;
+
+        case 500:
+            error("データ取得時のエラー：楽天ウェブサービス内のエラー");
+        break;
+
+        case 503:
+            error("データ取得時のエラー：メンテナンス・リクエスト過多 (全ユーザ制限値超過)");
+        break;
+    }
+    currentpage($count);
 }
+currentpage(1);
+
 
 function getRakutenResult($keyword, $max_price, $min_price, $page) {
-    // try{
 
         // ベースとなるリクエストURL
         $baseurl = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222';
@@ -114,16 +153,6 @@ function getRakutenResult($keyword, $max_price, $min_price, $page) {
                             );
         }
         return $items;
-    // }catch (Throwable $t){
-    //     // Executed only in PHP 7, will not match in PHP 5
-    //     error("楽天へのデータ取得時に問題が発生");
-    //     echo "aaa";
-    // }
-    // catch (Exception $e){
-    //    // Executed only in PHP 5, will not be reached in PHP 7
-    //    error("楽天へのデータ取得時に問題が発生");
-    //    echo "aaa";
-    // }
 }
 
 // RFC3986 形式で URL エンコードする関数
