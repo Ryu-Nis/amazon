@@ -110,7 +110,7 @@ for($count = $start_page; $count<=2; $count++){
         break;
 
         default:
-            error("想定外のHTTPコード");
+            error("想定外のHTTPステータスコード-->".$res_code);
     }
     currentpage($count);
 }

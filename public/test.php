@@ -2,10 +2,10 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>TEST Page</title>
+    <title>データ操作</title>
   </head>
   <body>
-    <h1>TEST Page</h1>
+    <h1>データ操作</h1>
 
     <?php
         $keyword = $_POST['keyword'];
