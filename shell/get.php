@@ -18,8 +18,9 @@ $date = date('Y-m-d H:i:s');
 $start_page = file_get_contents('../shell/logs/currentpage.txt');
 $start_page = intval($start_page);
 
-for($count = $start_page; $count<=2; $count++){
-    $rakuten_relust = getRakutenResult("Bianchi",100000,100, $count); // キーワード、最大価格、最低価格、を指定
+for($count= $start_page; $count<=$page; $count++){
+    // $rakuten_relust = getRakutenResult("Bianchi",100000,100, $count); // キーワード、最大価格、最低価格、を指定
+    $rakuten_relust = getRakutenResult($keyword,$max_price,$min_price, $count); // キーワード、最大価格、最低価格、を指定
     //HTTPレスポンスコードでエラー処理
     $res_code = http_response_code();
     switch($res_code){
@@ -45,7 +46,7 @@ for($count = $start_page; $count<=2; $count++){
                 // <!-- 無かったら新規、既にあったら日付と値段を更新 -->
                 if($rows == 0){
                     $insert_sql = "INSERT INTO products(code,date,name,price,proportion) 
-                    VALUES ('$code','$date', '$name', '$price',0)";
+                    VALUES ('$code','$date','$name','$price',0.0)";
                     $res = mysqli_query( $link, $insert_sql);
                     //DBエラー処理
                     $errNO = mysqli_errno($link);
