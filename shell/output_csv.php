@@ -5,6 +5,7 @@ function output_csv($ary,$filepath){
     // 正常にファイルを開くことができていれば、書き込みます。
     if ( $f ) {
         // fputcsv関数でファイルに書き込みます。
+        $ary = mb_convert_encoding($ary,"SJIS-win");
         fputcsv($f, $ary);
     }
     // ファイルを閉じます。

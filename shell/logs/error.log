@@ -1,45 +1,87 @@
-2020-06-30 17:06:26 1366:Incorrect string value: '\x82\xAF \xE3\x83\xA1...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xA4\xBE\xE3\x81\xAE\xE4...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\xAB\xE3\x80\x801...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E\xE3\x82\xB7...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E\xE3\x83\x8B...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x95\x86\xE5\x93\x81\xE3...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E \xE3\x82\xA2...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E\xE3\x82\xB7...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x83\xE3\x83\x81\xE3...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E ( ...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x82\xAF ( \xE3...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88\xE3\x80\x81E...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E\xE3\x83\xAB1...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x95\xE3\x82\xA1\xE3...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x89\xE3\x82\xA5\xE3...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E\xE6\xAD\xA3\xE8...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E\x81E\x82\xAB...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E\xE6\xAD\xA3\xE8...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x82\xB7\xE3\x83\xA5 ...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E\xE6\xAD\xA3\xE8...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E\xE3\x83\x88...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88 @13...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88 @11...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88 @73...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88 @90...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88 @11...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88 @82...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xBA\x97\xE5\x95\x86\xE5...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect integer value: ' Brain and Behavior SLEEP DEPRIVATION & DISEASE [ Matt T. Bianchi ]' for column 'price' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E\x81Eis...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x88 \xE3\x83\x81...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x82\xAF' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x97\xE3\x83\x96\xE3\x83...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x81E \xE3\x82\xA2...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xBA\x97\xE5\x95\x86\xE5...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E\xE3\x83\x88...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E\xE3\x83\x81...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\x83\x81\xE3\x82\xB7\xE3...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect string value: '\xE3\x81E\xE3\x83\x88...' for column 'name' at row 1-->インサート時のエラー
-2020-06-30 17:06:26 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
-2020-06-30 17:06:51 1366:Incorrect integer value: ' Bianchi 1:18 by CMR' for column 'price' at row 1-->インサート時のエラー
-2020-06-30 17:06:51 1366:Incorrect integer value: ' Blaton 1:18 CMR' for column 'price' at row 1-->インサート時のエラー
-2020-06-30 17:06:51 1366:Incorrect integer value: ' Brain and Behavior SLEEP DEPRIVATION & DISEASE [ Matt T. Bianchi ]' for column 'price' at row 1-->インサート時のエラー
-2020-06-30 17:06:51 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
-2020-06-30 17:48:38 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's Second Pre-Columbian Chinese Settlement WRITTEN IN THE RUINS [ Paul Chiasson ]' at line 2-->インサート時のエラー
+2020-07-01 18:38:53 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'password=a' at line 1
+2020-07-01 18:40:02 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'password='a'' at line 1
+2020-07-01 18:41:30 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2020-07-01 18:41:32 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2020-07-01 18:41:40 
+2020-07-01 18:41:45 
+2020-07-01 18:42:47 Unknown column 'a' in 'where clause'
+2020-07-01 18:43:28 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''a' at line 1
+2020-07-01 18:45:20 
+2020-07-01 18:45:27 
+2020-07-01 18:45:32 
+2020-07-01 18:45:35 
+2020-07-01 18:45:37 
+2020-07-01 18:45:49 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2020-07-01 18:45:54 
+2020-07-01 18:47:05 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2020-07-01 18:47:10 
+2020-07-01 18:47:14 
+2020-07-01 18:47:50 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2020-07-01 18:47:55 
+2020-07-01 18:48:39 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2020-07-01 18:48:44 
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83r\x83A\x83\x93...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81y\x92\x86\x8C\xC3...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83r\x83A\x83\x93...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83X\x83P\x81[...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83~\x83j\x83J...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83r\x83A\x83\x93...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83}\x83\x8B\x83R...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83r\x83A\x83\x93...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81yBIAN...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83N\x83\x8D\x83X...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81y\x8E\xE6\x8A\xF1...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83r\x83A\x83\x93...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81y\x91\x97\x97\xBF...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81y\x82\xA0\x82\xB7...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81yVALE...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81yBIAN...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81w\x83X\x83e...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81\x9A\x83h\x83D...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83V\x83\x87\x83\x8B...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83p\x83X\x83P...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x96\xBC\x8Eh\x81\x95...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83L\x81[\x83P...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83{\x83f\x83B...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83V\x83\x87\x83\x8B...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83g\x81[\x83g...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83E\x83H\x83\x8C...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x93\xF1\x82\xC2\x90\xDC...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83E\x83H\x83\x8C...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x8EO\x82\xC2\x90\xDC...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83L\x81[\x83P...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect integer value: ' Brain and Behavior SLEEP DEPRIVATION & DISEASE [ Matt T. Bianchi ]' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x81iHist...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83r\x83A\x83\x93...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83~\x83j\x83V...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83V\x83\x87\x83\x8B...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83~\x83j\x83V...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83{\x83f\x83B...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83g\x81[\x83g...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83E\x83G\x83X...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83N\x83\x89\x83b...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect string value: '\x83g\x81[\x83g...' for column 'name' at row 1-->インサート時のエラー
+2020-07-02 10:32:10 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:33:00 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S MELROSE）','5390',0.0)' at line 2-->インサート時のエラー
+2020-07-02 10:33:26 1366:Incorrect integer value: ' Bianchi 1:18 by CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:33:26 1366:Incorrect integer value: ' Blaton 1:18 CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:33:26 1366:Incorrect integer value: ' ciondoli gufi e cristalli bianchi 29 h' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:33:26 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:40:11 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:40:56 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:41:20 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:44:34 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:45:45 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:46:34 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:49:23 1366:Incorrect integer value: ' Bianchi 1:18 by CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:49:23 1366:Incorrect integer value: ' Blaton 1:18 CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:49:23 1366:Incorrect integer value: ' ciondoli gufi e cristalli bianchi 29 h' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:49:23 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:51:49 1366:Incorrect integer value: ' Bianchi 1:18 by CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:51:49 1366:Incorrect integer value: ' Blaton 1:18 CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:51:49 1366:Incorrect integer value: ' ciondoli gufi e cristalli bianchi 29 h' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:51:49 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 10:52:06 1366:Incorrect integer value: ' Bianchi 1:18 by CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:52:06 1366:Incorrect integer value: ' Blaton 1:18 CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:52:06 1366:Incorrect integer value: ' Brain and Behavior SLEEP DEPRIVATION & DISEASE [ Matt T. Bianchi ]' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 10:52:06 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
