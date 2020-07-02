@@ -85,3 +85,7 @@
 2020-07-02 10:52:06 1366:Incorrect integer value: ' Blaton 1:18 CMR' for column 'price' at row 1-->インサート時のエラー
 2020-07-02 10:52:06 1366:Incorrect integer value: ' Brain and Behavior SLEEP DEPRIVATION & DISEASE [ Matt T. Bianchi ]' for column 'price' at row 1-->インサート時のエラー
 2020-07-02 10:52:06 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー
+2020-07-02 11:07:10 1366:Incorrect integer value: ' Bianchi 1:18 by CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 11:07:10 1366:Incorrect integer value: ' Blaton 1:18 CMR' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 11:07:10 1366:Incorrect integer value: ' Brain and Behavior SLEEP DEPRIVATION & DISEASE [ Matt T. Bianchi ]' for column 'price' at row 1-->インサート時のエラー
+2020-07-02 11:07:11 1366:Incorrect integer value: '' for column 'id' at row 1-->インサート時のエラー

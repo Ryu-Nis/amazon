@@ -92,7 +92,7 @@
           echo "ファイルをアップロードしました。";
           
           if (file_exists($upload)) {
-              // unlink("$upload");
+              unlink("$upload");
           }
       }
     } else {
