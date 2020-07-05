@@ -8,30 +8,37 @@
   date_default_timezone_set('Asia/Tokyo');
   $date = date('Y-m-d H:i:s');
 
-  // クエリを送信する
-  $sql = "SELECT id,name,price,proportion from products WHERE name LIKE '%".$_POST['name']."%' order by id";
+  //１ページに表示する行数
+  $rows = 10;
 
+  //page番号を取得（初期値は0)  
+  if(!$_GET["page"]){
+    $start = 0;
+  }else{
+    $start = ($_GET["page"]-1);
+    $start = $start*$rows;
+  }
+  // クエリを送信する
+  $sql = "SELECT id,name,price,proportion from products WHERE name LIKE '%".$_POST['name']."%' order by id limit ".$start.",".$rows;
   $res = mysqli_query($link, $sql);
 
-
-  //結果セットの行数を取得する
-  $rows = mysqli_num_rows($res);
-
   //表示するデータを作成
-  if($rows){
-    while($row = mysqli_fetch_assoc($res)) {
-      $tempHtml .= "<tr>";
-      $tempHtml .= "<td>".$row["id"]."</td><td>".$row["name"]."</td>";
-      $price = number_format($row["price"]);//桁区切り表示
-      $tempHtml .= "<td>".$price."円</td><td>".$row["proportion"]."</td>";
-      $tempHtml .= "<td><a href=\"details.php?id=".$row['id']."\" target=\"_self\">詳細</a></td>";
-      $tempHtml .= "</tr>\r\n";
-    }
-    // $msg = $rows."件のデータがあります。";
+  for($i=1;$i<=$rows;$i++){
+    $row = mysqli_fetch_assoc($res);
+    $tempHtml .= "<tr>";
+    $tempHtml .= "<td>".$row["id"]."</td><td>".$row["name"]."</td>";
+    $price = number_format($row["price"]);//桁区切り表示
+    $tempHtml .= "<td>".$price."円</td><td>".$row["proportion"]."</td>";
+    $tempHtml .= "<td><a href=\"details.php?id=".$row['id']."\" target=\"_self\">詳細</a></td>";
+    $tempHtml .= "</tr>\r\n";
   }
   //結果保持用メモリを開放する
-
   mysqli_free_result($res);
+
+  $sql = "SELECT id,name,price,proportion from products WHERE name LIKE '%".$_POST['name']."%' order by id";
+  $res = mysqli_query($link, $sql);
+  $total = mysqli_num_rows($res);
+  $lastPage= ceil($total/$rows);
 
   //CSV入出力ボタンが押された場合
   if(isset($_POST['output_csv'])) {
@@ -98,11 +105,7 @@
     } else {
         echo"ファイルをアップロードできません。";
     }
-  } else {
-    echo"ファイルが選択されていません。";
-  }
-
-
+  } 
   
 ?>
 
@@ -132,28 +135,43 @@
       <td width='100'>前日比</td><td width='50'></td>
       <?= $tempHtml ?></tr>
     </table>
+  <br>
+  <ul><a href="list.php?page=1"> 最初のページへ </a>>
+  <a href="list.php?page=<?php echo $_GET['page']-1?>"> 前へ </a>
+　<a href="list.php?page=<?php echo $_GET['page']-3?>"><?php echo $_GET['page']-3?></a>
+　<a href="list.php?page=<?php echo $_GET['page']-2?>"><?php echo $_GET['page']-2?></a>
+　<a href="list.php?page=<?php echo $_GET['page']-1?>"><?php echo $_GET['page']-1?></a>
+　<a href="list.php?page=<?php echo $_GET['page']?>"><?php echo $_GET['page']?></a>
+　<a href="list.php?page=<?php echo $_GET['page']+1?>"><?php echo $_GET['page']+1?></a>
+　<a href="list.php?page=<?php echo $_GET['page']+2?>"><?php echo $_GET['page']+2?></a>
+　<a href="list.php?page=<?php echo $_GET['page']+3?>"><?php echo $_GET['page']+3?></a>
+  <a href="list.php?page=<?php echo $_GET['page']+1?>">次へ </a>>
+  <a href="list.php?page=<?php echo $lastPage?>">最後のページへ </a><br>
+  <p><?php echo $lastPage?>ページ中 <?php echo$_GET['page']?>ページ目</p></ul>
   </body>
 </html>
 
 
-<!-- １．CSV出力ボタンを付けて、出力
-２．CSV取り込み
-→一応機能的には形になったが、課題が２点
-　Ⅰ　エンコード（出力したファイルを入力すると文字化けする）
-　Ⅱ　一行目（カラム名を飛ばす処理）
-　　→暫定的に「一行目を削除してからインポート」「そもそもカラムを出力しない」での対応は可能 
+<!-- １．CSV出力ボタンを付けて、出力 
+２．CSV取り込み →一応機能的には形になったが、一行目（カラム名を飛ばす処理）
+→暫定的に「一行目を削除してからインポート」「そもそもカラムを出力しない」での対応は可能
 
-３．検索機能
-（名前、値段、前日比～％以下、以上）
-→名前のみ検索機能追加（あとはSQLを調整するだけ）
+３．検索機能 （名前、値段、前日比～％以下、以上） 
+→名前のみ検索機能追加（あとはSQLを調整するだけと思ってます。）
 
-４．一覧ページをキャッシュで出力する
-→クエリキャッシュ？それとも拡張モジュールのAPC？
+４．一覧ページをキャッシュで出力する 
+→未済
 
-５．ログインページ（会員はあらかじめ作っておいても良い）
-６．パスワードは平文では入れない　→　ハッシュ化する
+５．ログインページ（会員はあらかじめ作っておいても良い） 
+６．パスワードは平文では入れない
+→ハッシュ化する 
 
+７．ページネーション 
+・検索機能を利用した際の挙動
+・最初のページ、最後のページを表示した時に前後のページを表示しない（-2ページとか）
 
-７．ページネーション
-８．カート機能
-９．データ更新の際に、非同期処理（メッセージ出力） -->
+８．カート機能 
+→未済
+
+９．データ更新の際に、非同期処理（メッセージ出力）
+→ログイン、ユーザー登録の際に非同期処理はしたが、、 -->

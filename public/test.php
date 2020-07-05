@@ -13,7 +13,7 @@
         $min_price = $_POST['min'];
         $page = $_POST['page']; 
           if(isset($_POST['update'])) {
-            include '../shell/get.php';
+            exec(include '../shell/get.php'); //非同期処理
           } else if(isset($_POST['truncate'])) {
               include '../shell/Truncate_DB.php';
           }

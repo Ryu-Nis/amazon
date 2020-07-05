@@ -3,6 +3,7 @@
 session_start();
 $error_message = "";
 
+
 if($_SESSION['id']){
   printf($_SESSION['id']."さん、こんにちは<br>");
 }else{
@@ -51,6 +52,14 @@ if($_SESSION['id']){
     } else {
       // 未入力なら何もしない
       echo "ID,パスワードを入力してください";
+      
+      // printf("
+      // <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+      // <script>
+      // $(function(){
+      //   $('#resultLoadtest').load('temp.php #idColorGreen');
+      // });
+      // </script>");
     } 
   }
 }
@@ -64,26 +73,50 @@ header('Location: login.php');
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="SJIS-win">
     <title>ログイン</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
   </head>
-  <body>
+  <body>  
     <h1>ログインページ</h1>
-    <form action="login.php" method="POST">
-      <p>ログインID：<input type="text" name="id"></p>
-      <p>パスワード：<input type="password" name="password"></p>
-      <input type="submit" name="login" value="ログイン">
+    <form action="" method="POST">
+      <p>ログインID：<input type="text" name="id" id="inputID"></p>
+      <p>パスワード：<input type="password" name="password" id="inputPW"></p>
+      <input type="submit" name="login" value="ログイン" id="sub" >
     </form>
 
     <form action="login.php" method="POST">
       <p><input type="submit" name="clear" value="ログアウト"></p>
     </form>    
-
     <p><a href="adduser.php">ユーザー登録</p>
 
-  </body>
+<!-- 非同期処理
+IDとPWに一文字以上入力しないとログインボタンが非活性のまま -->
+<script>
+$(function(){
+  if (($("#inputID").val().length == 0) && ($("#inputPW").val().length == 0)) {
+    $("#sub").prop("disabled", true);
+  } 
+  $("#inputID").on("keydown keyup keypress change", function() {
+    if ($("#inputID").val().length < 1 || $("#inputPW").val().length < 1) {
+      $("#sub").prop("disabled", true);
+    } else {
+       $("#sub").prop("disabled", false);
+    }
+  });
+  $("#inputPW").on("keydown keyup keypress change", function() {
+    if ($("#inputID").val().length < 1 || $("#inputPW").val().length < 1) {
+      $("#sub").prop("disabled", true);
+    } else {
+       $("#sub").prop("disabled", false);
+    }
+  });
+});
+</script>
+
+</body>
 </html>
